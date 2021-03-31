@@ -2,3 +2,6 @@
 <p>Create shorter version of the URLs.</p>
 
 
+<% if current_user %>
+  <%= link_to 'Manage URLs', user_path(current_user) %>
+<% end %>

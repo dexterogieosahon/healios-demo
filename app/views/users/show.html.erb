@@ -3,4 +3,36 @@
   <p class="user-page"><%= @user.email %></p>
 </h3>
 
-<%= link_to 'Back', root_path %>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<br>
+
+<h3>(<%= @shortened_urls.count %>) Shortened URLs</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url key</th>
+      <th>Clicks</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shortened_urls.each do |shortened_url| %>
+      <tr>
+        <td><%= shortened_url.url_key %></td>
+        <td><%= shortened_url.click_count %></td>
+        <td><%= link_to 'Show', unshorten_path(id: shortened_url.url_key) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shortened Url', new_user_shortened_url_path(@user) %> | <%= link_to 'Back', root_path %>
+

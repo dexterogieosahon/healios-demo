@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @shortened_urls = @user.shortened_urls
   end
 
   # GET /users/new

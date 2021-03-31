@@ -1,0 +1,22 @@
+<%= form_with(model: [@user, shortened_url], local: true) do |form| %>
+  <% if shortened_url.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shortened_url.errors.count, "error") %> prohibited this shortened_url from being saved:</h2>
+
+      <ul>
+        <% shortened_url.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_area :url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
